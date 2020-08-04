@@ -1,17 +1,20 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Image } from 'react-native';
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: '1',
+    iconAvatar: require("./assets/exit.jpg"),
     title: 'First Item',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '2',
+    iconAvatar: require("./assets/exit_1.png"),
     title: 'Second Item',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '3',
+    iconAvatar: require("./assets/see_detail.png"),
     title: 'Third Item',
   },
 ];
@@ -24,7 +27,10 @@ const Item = ({ title }) => (
 
 const App = () => {
   const renderItem = ({ item }) => (
+    <View>
+    <Image source={item.iconAvatar} style={styles.avatarStory} />
     <Item title={item.title} />
+    </View>
   );
 
   return (
@@ -51,6 +57,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+  },
+  avatarStory: {
+    width: 50,
+    height: 50,
   },
 });
 
